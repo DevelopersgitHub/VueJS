@@ -2,6 +2,7 @@
     <div id="class">
         <div class="region" :class="{'active' : isActive}" v-on:click="enabled()">
             region
+
         </div>
         <div class="region"></div>
     </div>
