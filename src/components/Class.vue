@@ -1,7 +1,8 @@
 <template>
     <div id="class">
-        region
-        <div class="region" :class="{'active' : isActive}" v-on:click="enabled()"></div>
+        <div class="region" :class="{'active' : isActive}" v-on:click="enabled()">
+            region
+        </div>
         <div class="region"></div>
     </div>
 </template>
