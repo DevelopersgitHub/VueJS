@@ -5,7 +5,7 @@
     <List/>
     <Footer/> -->
     <img src="./assets/logo.png">
-   <p class="strike">Welcome to the world unique things</p>
+   <p class="strike">Welcome</p>
    <Class/>
    <router-view/>
  </div>
