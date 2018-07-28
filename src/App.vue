@@ -1,23 +1,18 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png">
-    <p class="strike">Welcome to the world unique things</p>
-    <List/>
-    <Footer/> -->
     <img src="./assets/logo.png">
-   <p class="strike">Welcome</p>
-   <Class/>
-   <router-view/>
- </div>
+    <p class="strike">Welcome</p>
+    <router-view/>
+    <frontVue/>
+    <backVue/>
+  </div>
 </template>
-
 <script>
- import List from './components/List';
- import Footer from './components/Footer';
- import Class from './components/Class';
+  import frontVue from './components/frontVue';
+  import backVue from './components/backVue';
 export default {
    name: 'App',
-   components: { Class, Footer, List }
+   components: { frontVue, backVue }
 }
 </script>
 

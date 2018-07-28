@@ -14,7 +14,7 @@
     <input type="text" v-model="clazz" />
     <input type="text" v-model="size" />
     <br/>
-    <div class="region" v-bind:style="styleObj"></div>
+    <div class="region" v-bind:style="[styleObjColor, styleObjAdd]"></div>
     <input type="text" v-model="color" />
     <input type="text" v-model="width" />
     <input type="text" v-model="height" />
@@ -51,9 +51,13 @@
       }
       }*/
 
-      styleObj() {
+      styleObjColor() {
         return {
-          'background-color': this.color,
+          'background-color': this.color
+        }
+      },
+      styleObjAdd() {
+        return {
           width: this.width + 'px',
           height: this.height + 'px'
         }
