@@ -10,11 +10,11 @@
       <button v-on:click="enabledB()"></button>
     </div>
     <br/>
-    <div class="region" v-bind:class="[color, size]"></div>
-    <input type="text" v-model="color" />
+    <div class="region" v-bind:class="[clazz, size]"></div>
+    <input type="text" v-model="clazz" />
     <input type="text" v-model="size" />
     <br/>
-    <div class="region" v-bind:style="{ 'background-color': color, width: width + 'px', height: height + 'px'}"></div>
+    <div class="region" v-bind:style="styleObj"></div>
     <input type="text" v-model="color" />
     <input type="text" v-model="width" />
     <input type="text" v-model="height" />
@@ -32,7 +32,8 @@
         message: 'Введите сообщение',
         isActive: false,
         isBounded: false,
-        color: "red",
+        clazz: 'region',
+        color: 'red',
         width: 75,
         height: 75,
         size: "small",
@@ -49,6 +50,14 @@
           bounded: this.isBounded
       }
       }*/
+
+      styleObj() {
+        return {
+          'background-color': this.color,
+          width: this.width + 'px',
+          height: this.height + 'px'
+        }
+      }
     },
     methods: {
       enabled() {
