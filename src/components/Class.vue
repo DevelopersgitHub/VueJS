@@ -1,10 +1,15 @@
 <template>
-    <div id="class">
-        <div class="region" v-bind:class="something"></div>
-        <div class="region" v-bind:class="{bounded : isBounded}"></div>
-        <button v-on:click="enabled()"></button>
-        <button v-on:click="enabledB()"></button>
+  <div id="class">
+    <div class="region" v-bind:class="classObj">
+      <button v-on:click="something()"></button>
     </div>
+    <div class="region" v-bind:class="{ active : isActive }">
+      <button v-on:click="enabled()"></button>
+    </div>
+    <div class="region" v-bind:class="{ bounded : isBounded }">
+      <button v-on:click="enabledB()"></button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -15,10 +20,18 @@
         isActive: false,
         isBounded: false,
         classObj: {
-          active: this.isActive,
-          bounded: this.isBounded
+          active: false,
+          bounded: false
         }
       }
+    },
+    computed: {
+      /*classObj(){
+        return {
+          active: this.isActive,
+          bounded: this.isBounded
+      }
+      }*/
     },
     methods: {
       enabled() {
@@ -26,18 +39,16 @@
       },
       enabledB() {
         this.isBounded = !this.isBounded;
-    }
-    },
-    computed: {
-      something(){
-        return this.classObj;
+      },
+      something() {
+        if (this.classObj.active) {
+          this.classObj.active = false;
+          this.classObj.bounded = false;
+        } else {
+          this.classObj.active = true;
+          this.classObj.bounded = true;
+        }
       }
-      /*classObj(){
-        return {
-          active: this.isActive,
-          bounded: this.isBounded
-      }
-      }*/
     }
   }
 </script>
@@ -54,6 +65,7 @@
   .active {
     background-color: red;
   }
+
   .bounded {
     border: 2px solid green;
   }
