@@ -1,6 +1,6 @@
 <template>
     <div id="class">
-        <div class="region" v-bind:class="classObj"></div>
+        <div class="region" v-bind:class="something"></div>
         <div class="region" v-bind:class="{bounded : isBounded}"></div>
         <button v-on:click="enabled()"></button>
         <button v-on:click="enabledB()"></button>
@@ -28,14 +28,17 @@
         this.isBounded = !this.isBounded;
     }
     },
-    /*computed: {
-      classObj(){
+    computed: {
+      something(){
+        return this.classObj;
+      }
+      /*classObj(){
         return {
           active: this.isActive,
           bounded: this.isBounded
       }
-      }
-    }*/
+      }*/
+    }
   }
 </script>
 
