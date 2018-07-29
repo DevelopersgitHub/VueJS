@@ -5,6 +5,8 @@
       <input type="number" v-model="newPhone.cost"/>
       <button v-on:click="pushArray(newPhone)">Добавить</button>
     </p>
+
+
     <ul>
       <li v-for="(phone, index) in phones">
         <p>{{phone.name }} {{phone.cost }}
