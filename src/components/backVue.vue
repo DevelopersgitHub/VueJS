@@ -15,7 +15,7 @@
     },
     methods: {
       onClick() {
-        EventBus.$emit('change_first', this.title);
+        EventBus.$emit('change_name', this.title);
       }
     }
   };

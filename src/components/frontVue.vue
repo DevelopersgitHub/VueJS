@@ -18,8 +18,8 @@
       }
     },
     methods: {
-      setName(newName) {
-        EventBus.$on('change_first', (newName) => {
+      setName() {
+        EventBus.$on('change_name', (newName) => {
           this.name = newName;
         });
       }
