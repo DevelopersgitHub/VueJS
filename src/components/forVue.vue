@@ -1,8 +1,9 @@
 <template>
   <div>
     <p>
-      <input type="text" v-model="newPhone"/>
-      <button v-on:click="phones.push(newPhone)">Добавить</button>
+      <input type="text" v-model="newPhone.name"/>
+      <input type="number" v-model="newPhone.cost"/>
+      <button v-on:click="pushArray(newPhone)">Добавить</button>
     </p>
     <ul>
       <li v-for="(phone, index) in phones">
@@ -43,8 +44,8 @@
     data() {
       return {
         newPhone: {
-          name: '',
-          cost: ''
+          name: 'Phone',
+          cost: 0
         },
         phones: [
           {
@@ -81,6 +82,18 @@
         ]
       }
     },
+    methods: {
+      pushInto(value){
+        var val = value.split(", ");
+        let item = {};
+        item.name = val[0];
+        item.cost = val[1];
+        this.phones.push(item)
+      },
+      pushArray(newPhone){
+        this.phones.push(newPhone);
+      }
+    }
   }
 </script>
 
