@@ -17,14 +17,13 @@
         age: 22
       }
     },
-    methods: {
-      setName() {
-        EventBus.$on('change_name', (newName) => {
-          this.name = newName;
-        });
-      }
+    mounted(){
+      EventBus.$on('change_name', (newName) => {
+        this.name = newName;
+      });
     }
   };
+
 
 </script>
 

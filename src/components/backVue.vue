@@ -10,7 +10,7 @@
     name: 'backVue',
     data() {
       return {
-        title: ''
+        title: 'Smith'
       }
     },
     methods: {

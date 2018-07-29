@@ -2,17 +2,15 @@
   <div id="app">
     <img src="./assets/logo.png">
     <p class="strike">Welcome</p>
+    <ifVue/>
     <router-view/>
-    <frontVue/>
-    <backVue/>
   </div>
 </template>
 <script>
-  import frontVue from './components/frontVue';
-  import backVue from './components/backVue';
+  import ifVue from './components/ifVue';
 export default {
    name: 'App',
-   components: { frontVue, backVue }
+   components: { ifVue }
 }
 </script>
 
