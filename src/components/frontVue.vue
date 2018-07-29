@@ -8,20 +8,23 @@
 </template>
 
 <script>
-export default {
-  name: 'frontVue',
-  data() {
-    return {
-      name: 'Tom',
-      age: 22
+  import { EventBus } from '../event-bus.js';
+  export default {
+    name: 'frontVue',
+    data() {
+      return {
+        name: 'Tom',
+        age: 22
+      }
+    },
+    methods: {
+      setName(newName) {
+        EventBus.$on('change_first', (newName) => {
+          this.name = newName;
+        });
+      }
     }
-  },
-  methods: {
-    setName(newName) {
-      this.name = newName;
-    }
-  }
-};
+  };
 
 </script>
 

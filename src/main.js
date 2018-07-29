@@ -3,23 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import frontVue from './components/frontVue'
-import backVue from './components/backVue'
+
+export const EventBus = new Vue();
 
 Vue.config.productionTip = false;
-
-new Vue({
-  el: '#app1',
-  router,
-  components: {frontVue},
-  template: '<frontVue/>'
-});
-new Vue({
-  el: '#app2',
-  router,
-  components: {backVue},
-  template: '<backVue/>'
-});
 
 /* eslint-disable no-new */
 new Vue({

@@ -5,16 +5,17 @@
   </div>
 </template>
 <script>
+  import { EventBus } from '../event-bus.js';
   export default {
     name: 'backVue',
-    data(){
+    data() {
       return {
         title: ''
       }
     },
     methods: {
       onClick() {
-        frontVue.setName(this.title);
+        EventBus.$emit('change_first', this.title);
       }
     }
   };
