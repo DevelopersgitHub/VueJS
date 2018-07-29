@@ -1,15 +1,15 @@
 <template>
   <div>
     <p>
-      <input type="text" v-model="newPhone.name"/>
-      <input type="number" v-model="newPhone.cost"/>
+      <input ref="input1" type="text" v-model="newPhone.name"/>
+      <input ref="input2" type="number" v-model="newPhone.cost"/>
       <button v-on:click="pushArray(newPhone)">Добавить</button>
     </p>
 
 
     <ul>
       <li v-for="(phone, index) in phones">
-        <p>{{phone.name }} {{phone.cost }}
+        <p>{{phone.name }} {{phone.cost + ' $'}}
           <button v-on:click="phones.splice(index, 1)">Удалить</button>
         </p>
       </li>
@@ -46,25 +46,25 @@
     data() {
       return {
         newPhone: {
-          name: 'Phone',
-          cost: 0
+          name: '',
+          cost: ''
         },
         phones: [
           {
             name: 'Iphone6',
-            cost: '100$'
+            cost: '100'
           },
           {
             name: 'Iphone7',
-            cost: '120$'
+            cost: '120'
           },
           {
             name: 'Iphone8',
-            cost: '160$'
+            cost: '160'
           },
           {
             name: 'IphoneX',
-            cost: '200$'
+            cost: '200'
           }
         ],
         newPhones: ['Iphone6', 'Iphone7', 'Iphone8', 'IphoneX',],
@@ -85,15 +85,26 @@
       }
     },
     methods: {
-      pushInto(value){
+      pushInto(value) {
         var val = value.split(", ");
         let item = {};
         item.name = val[0];
         item.cost = val[1];
         this.phones.push(item)
       },
-      pushArray(newPhone){
-        this.phones.push(newPhone);
+      /*pushArray(){
+        let item = {};
+        item.name = this.$refs.input1.value;
+        item.cost = this.$refs.input2.value;
+        this.phones.push(item);
+      }*/
+      pushArray(value) {
+        if (value.name && value.cost != null) {
+          this.phones.push(value);
+          this.newPhone = {name: null, cost: null};
+        } else {
+          alert("Enter all data");
+        }
       }
     }
   }
