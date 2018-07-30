@@ -2,15 +2,15 @@
   <div id="app">
     <img src="./assets/logo.png">
     <p>Welcome</p>
-    <forVue/>
+    <FormVue/>
     <router-view/>
   </div>
 </template>
 <script>
-  import forVue from './components/forVue';
+  import FormVue from './components/FormVue';
   export default {
     name: 'App',
-    components: {forVue}
+    components: {FormVue}
   }
 </script>
 
