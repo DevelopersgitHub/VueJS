@@ -1,26 +1,63 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!--<img src="./assets/logo.png">
     <p>Welcome</p>
-    <section-header></section-header>
-    <section-content></section-content>
-    <section-footer></section-footer>
-    <router-view/>
+    <h2>Список пользователей</h2>
+    <userform v-bind:user="user"></userform>
+    <userform v-bind:addfn="add"></userform>
+    <div>
+      <useritem v-for="(user, index) in users"
+                :user="user"
+                :index="index"
+                :key="index"
+                :removefn="remove">
+        v-on:userdelete="remove"
+        v-on:userchange="change">
+      </useritem>
+    </div>
+    <h2>User</h2>
+    <userchange :user="user" @userchange="change"></userchange>
+    <userreset :name="user" @userreset="reset"></userreset>
+    <h2>User</h2>
+    <usered :user="user"></usered>
+    <userinf :user="user"></userinf>-->
+    <!--<h1>Миксины</h1>
+    <light></light>
+    <enabled></enabled>-->
+    <messageMixin></messageMixin>
   </div>
 </template>
 
 <script>
-  var footer = {
-    template: '<p><b>Footer</b></p>'
-  };
-  var comp1 = {
-    template: '<div>Content 1</div>'
-  };
   export default {
-    name: 'App',
-    components: {
-      'section-content': comp1,
-      'section-footer': footer
+    name: "App",
+    data() {
+      return {
+        user: 'Tom',
+        users: [
+          {name: 'Tom', age: 23},
+          {name: 'Bob', age: 26},
+          {name: 'Alice', age: 28}
+        ],
+        //user: {}
+      }
+    },
+    methods: {
+      add(user) {
+        this.users.push(user);
+      },
+      remove(index) {
+        this.users.splice(index, 1);
+      },
+      /*change(index){
+        this.user = this.users[index];
+      },*/
+      change(name) {
+        this.user = name;
+      },
+      reset() {
+        this.user = 'Tom';
+      }
     }
   }
 </script>

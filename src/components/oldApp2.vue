@@ -1,5 +1,5 @@
 <template>
-  <div id="app1">
+  <div id="oldApp2">
     <section-header></section-header>
     <section-content></section-content>
     <counter></counter>
@@ -33,7 +33,7 @@
     }
   };
   export default {
-    name: "App1",
+    name: "oldApp2",
     data() {
       return {
         welcome: '',
@@ -71,7 +71,7 @@
   }
 
   body {
-    background: url('./assets/background.jpg'), no-repeat;
+    background: url('../assets/background.jpg'), no-repeat;
     font-family: Helvetica, sans-serif;
     font-size: 18px;
     color: #272727;
