@@ -1,13 +1,10 @@
 <template>
-  <div>
-  <hello></hello>
+  <div id="app1">
+    <h2>Hello</h2>
   </div>
 </template>
 
 <script>
-  Vue.component('hello', {
-    template: '<h2>Hello</h2>'
-  });
   export default {
     name: "compVue"
   }

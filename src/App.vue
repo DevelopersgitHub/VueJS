@@ -2,15 +2,26 @@
   <div id="app">
     <img src="./assets/logo.png">
     <p>Welcome</p>
-    <idVue/>
+    <section-header></section-header>
+    <section-content></section-content>
+    <section-footer></section-footer>
     <router-view/>
   </div>
 </template>
+
 <script>
-  import idVue from './components/idVue';
+  var footer = {
+    template: '<p><b>Footer</b></p>'
+  };
+  var comp1 = {
+    template: '<div>Content 1</div>'
+  };
   export default {
     name: 'App',
-    components: {idVue}
+    components: {
+      'section-content': comp1,
+      'section-footer': footer
+    }
   }
 </script>
 
