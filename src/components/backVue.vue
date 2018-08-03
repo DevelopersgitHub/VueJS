@@ -1,5 +1,6 @@
 <template>
   <div id="app2">
+    <h2>Планшеты</h2>
     <input type="text" v-model="title"/>
     <button v-on:click="onClick">Change</button>
   </div>

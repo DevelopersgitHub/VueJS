@@ -1,5 +1,9 @@
 <template>
   <div>
+   <!--<h2>Products {{$route.params.id}}</h2>
+    <h3>Category: {{$route.params.category}}</h3>
+    <h3>Id: {{$route.params.id}}</h3>-->
+    <h1>Товары: <router-view></router-view></h1>
     <template v-if="visible">
       <h1>Заголовок 1</h1>
       <p v-if="visible">Первый параграф</p>

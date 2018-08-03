@@ -1,30 +1,70 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">
-    <p>Welcome</p>
-    <h2>Список пользователей</h2>
-    <userform v-bind:user="user"></userform>
-    <userform v-bind:addfn="add"></userform>
-    <div>
-      <useritem v-for="(user, index) in users"
-                :user="user"
-                :index="index"
-                :key="index"
-                :removefn="remove">
-        v-on:userdelete="remove"
-        v-on:userchange="change">
-      </useritem>
-    </div>
-    <h2>User</h2>
-    <userchange :user="user" @userchange="change"></userchange>
-    <userreset :name="user" @userreset="reset"></userreset>
-    <h2>User</h2>
-    <usered :user="user"></usered>
-    <userinf :user="user"></userinf>-->
-    <!--<h1>Миксины</h1>
-    <light></light>
-    <enabled></enabled>-->
-    <messageMixin></messageMixin>
+    <!--<ads></ads>
+     <ads>
+       <div>
+         <p>Открыт набор на бесплатные курсы Udacity.</p>
+         <p>Заявки принимаются до 16 октября</p>
+       </div>
+     </ads>
+     <container>
+       <h1 slot="header">Заголовок статьи</h1>
+       <p slot="header">Дата статьи: 13/10/2017</p>
+       <p>Первый абзац.</p>
+       <p>Второй абзац.</p>
+       <p slot="footer">Футер</p>
+     </container>
+     <user>
+       <template slot-scope="props">
+         <h3>Данные о пользователе</h3>
+         <p>Имя: {{props.username}}</p>
+         <p>Возраст: {{props.userage}}</p>
+       </template>
+     </user>
+   <userlist v-bind:users="users">
+     <li slot-scope="props" class="user">
+       {{props.username}}
+     </li>
+   </userlist>
+     {{message | capitalize}}
+     <h2>{{message | uppercase}}</h2>
+     <message></message>-->
+    <!--<ul>
+      <li>
+        <router-link tag="div" to="/" exact active-class="active">List</router-link>
+      </li>
+      <li>
+        <router-link to="/class" active-class="active">Class</router-link>
+      </li>
+      <li>
+        <router-link to="/footer" active-class="active">Footer</router-link>
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        <router-link tag="div" to="/" exact active-class="active">List</router-link>
+      </li>
+      <li>
+        <router-link to="/products/tablets" active-class="active">Tablets</router-link>
+      </li>
+      <li>
+        <router-link to="/products/phones" active-class="active">Phones</router-link>
+      </li>
+    </ul>-->
+
+    <!-- <ul>
+       <li>
+         <router-link to="/" exact active-class="active">Home</router-link>
+       </li>
+       <li>
+         <router-link to="/products" active-class="active">Products</router-link>
+       </li>
+     </ul>
+    <router-link to="/" exact>Главная</router-link>-->
+    <router-view/>
+    <!--<router-view name="ads"/>
+    <router-view name="content"/>-->
   </div>
 </template>
 
@@ -33,30 +73,8 @@
     name: "App",
     data() {
       return {
-        user: 'Tom',
-        users: [
-          {name: 'Tom', age: 23},
-          {name: 'Bob', age: 26},
-          {name: 'Alice', age: 28}
-        ],
-        //user: {}
-      }
-    },
-    methods: {
-      add(user) {
-        this.users.push(user);
-      },
-      remove(index) {
-        this.users.splice(index, 1);
-      },
-      /*change(index){
-        this.user = this.users[index];
-      },*/
-      change(name) {
-        this.user = name;
-      },
-      reset() {
-        this.user = 'Tom';
+        users: ['Tom', 'Bob', 'Sam'],
+        message: "hello, world"
       }
     }
   }
@@ -77,4 +95,32 @@
     font-size: 18px;
     color: #272727;
   }
+
+  .user {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    padding: 5px;
+  }
+
+  a.router-link-active, li.router-link-active > a {
+    color: red;
+  }
+
+  .active {
+    color: green;
+  }
+
+
 </style>

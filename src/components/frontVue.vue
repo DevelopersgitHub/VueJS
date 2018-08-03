@@ -1,5 +1,6 @@
 <template>
   <div id="app1">
+    <h2>Смартфоны</h2>
     <input type="text" v-model="name"/>
     <input type="number" v-model="age"/>
     <p>Name: {{ name }}, Age: {{ age }}</p>

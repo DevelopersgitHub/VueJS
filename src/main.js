@@ -7,7 +7,52 @@ import {EventBus} from "./event-bus";
 
 Vue.config.productionTip = false;
 
-var data = {
+Vue.component('ads', {
+  template: '<div><h3>Объявление</h3><slot>Здесь могла бы быть ваша реклама</slot></div>'
+});
+Vue.component('container', {
+  template: '<div>' +
+  '<header>' +
+  '<slot name="header">Заголовок по умолчанию</slot>' +
+  '</header>' +
+  '<article>' + '<slot></slot>' +
+  '</article>' + '<footer><slot name="footer"></slot></footer>' +
+  '</div>'
+});
+Vue.component('user', {
+  template: '<div class="user"><slot username="Tom" userage="31"></slot></div>'
+});
+Vue.component('userlist', {
+  props: ["users"],
+  template: '<ul><slot  v-for="user in users" v-bind:username="user"></slot></ul>'
+});
+Vue.component('message', {
+  template: '<h2>{{text | uppercase}}</h2>',
+  data(){
+    return {
+      text: "Hello"
+    }
+  },
+  filters: {
+    uppercase(value){
+      return value.toUpperCase();
+    }
+  }
+});
+
+Vue.filter('capitalize', function (value) {
+  var capitalFirst = value.charAt(0).toUpperCase();
+  var noCaseTail = value.slice(1, value.length);
+    return capitalFirst + noCaseTail;
+});
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: {App},
+  template: '<App/>'
+});
+/*var data = {
     header: 'Counter Program',
     count: 0
   }
@@ -73,24 +118,24 @@ Vue.component('user', {
       type: String,
       required: true,
       default: 'Tom',
-      /*validator(value) {
+      /!*validator(value) {
         return value != 'admin' && value != '';
-      }*/
+      }*!/
     },
     ageUser: {
       type: Number,
       required: true,
       default: 18,
-      /*validator(value) {
+      /!*validator(value) {
         return value >= 0 && value < 100;
-      }*/
+      }*!/
     }
   },
   template: '<div><h2>User</h2><p>Name: {{nameUser}}</p><p>Age: {{ageUser}}</p></div>'
 });
 //props: ['nameUser', 'ageUser'],
 
-/*nameUser: {
+/!*nameUser: {
   type: String,
   required: true,
   default: 'Tom',
@@ -105,7 +150,7 @@ ageUser: {
   validator(value){
     return value >= 0 && value < 100;
   }
-}*/
+}*!/
 Vue.component('hello', {
   template: '<compVue/>'
 });
@@ -113,14 +158,14 @@ Vue.component('hello', {
 Vue.component('section-header', {
   template: '<h3>Header</h3>'
 });
-/*Vue.component('userdetails', {
+/!*Vue.component('userdetails', {
   props: ["user"],
   template: '<div class="userDetailsDiv"><p>Name: {{user.name}}</p><p>Age: {{user.age}}</p></div>'
 });
 Vue.component('userlist', {
   props: ["users"],
   template: '<div><userDetails v-for="user in users" v-bind:key="user.name" v-bind:user="user"></userDetails></div>'
-});*/
+});*!/
 
 Vue.component('userdetails', {
   props: ["user"],
@@ -147,7 +192,7 @@ Vue.component('useredit', {
   template: '<div><input type="text" v-model="userName" v-on:input="onUserChange"/><p>Name: {{userName}}</p></div>',
   methods: {
     onUserChange() {
-      this.$emit(/*'userchange'*/ 'update:user', /*userName*/ this.userName);
+      this.$emit(/!*'userchange'*!/ 'update:user', /!*userName*!/ this.userName);
     }
   }
 });
@@ -279,14 +324,7 @@ Vue.mixin({
 });
 Vue.component('messageMixin', {
   template: '<h2>Hello</h2>'
-});
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: {App},
-  template: '<App/>'
-});
+});*/
 
 /*new Vue({
   el: '#app1',
